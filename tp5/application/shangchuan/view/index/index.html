@@ -6,14 +6,10 @@
 		<title>首页</title>
 	</head>
 <body>
-	<div>
-	这是登录成功的首页欢迎你{$username}
-	</div>
-	<div>
-	<a href="{:url('Index/des')}">退出</a>
-	</div>
-	<div>
-		<a href="{:url('Index/qianggou')}">开始抢购</a>
-	</div>
+	<h1>上传</h1>
+	<form method="post" action="{:url('Index/do_shangchuan')}" enctype="multipart/form-data" >
+		<input type="file" name="photo" />
+		<input type="submit" value="提交">
+	</form>
 </body>
 </html>

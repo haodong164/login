@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="__STATIC__js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="__STATIC__js/jquery.date_input.pack.js"></script>
 		<script type="text/javascript" src="__STATIC__layer/2.4/layer.js"></script>
-
+		<script type="text/javascript" src="__STATIC__js/js.js"></script>
 		<style>
 
 		</style>
@@ -41,7 +41,14 @@
 				<span>确认密码 :</span>
 				<input id="repassword" type="password" name="repassword" placeholder="请输入邮箱">
 			</label>
-			
+			<!--验证码-->
+			<label>
+				<span>验证码 :</span>
+				<input id="codeInput" type="text" name="code" placeholder="请输入验证码">
+				<div>
+					<img id="captchs" src="{:captcha_src()}" alt="captcha" style="cursor:pointer;" />
+				</div>
+			</label>
 				<br/>
 				<!-- <input type="submit" class="submit" value="提交" /> -->
 				<input type="button" id="button" class="submit" style="clear:both" value="提交" />
@@ -50,6 +57,14 @@
 </div>
 <script src="__STATIC__js/laydate.js"></script>
 <script type="text/javascript" src="__STATIC__js/jquery.ipicture.js"></script>
+<script type="text/javascript">
+	$("#captchs").click(function(){
+	// $(this).attr("src","/captcha?id="+Math.random());
+	document.getElementById('captchs').src="/captcha?id="+Math.random();
+	//document.getElementById('captchs').src="/captcha?id="+Math.random();
+	
+});
+</script>
 <script type="text/javascript">
 	$(function(){
 	$("#button").click(function(){

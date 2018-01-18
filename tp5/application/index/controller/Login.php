@@ -12,6 +12,14 @@ class Login extends Controller{
     	$info=input('post.');
     	$name=$info['username'];
     	$cou=$db->where('username="'.$name.'"')->find();
+        $code=$info['code'];
+        if(!captcha_check($code)){
+            $data=[
+                'status'=>2,
+                'msg'=>'验证码错误'
+            ];
+            return $data;
+        }
     	if($cou){
     		$data=[
     			'status'=>4,
@@ -26,6 +34,7 @@ class Login extends Controller{
     		];
     		return $data;
     	}
+        unset($info['code']);
     	unset($info['repassword']);
     	$info['password']=md5($info['password']);
     	$arr=$db->insert($info);

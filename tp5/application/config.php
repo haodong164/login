@@ -187,13 +187,16 @@ return [
 
     'cache'                  => [
         // 驱动方式
-        'type'   => 'File',
+        'type'   => 'redis',
         // 缓存保存目录
         'path'   => CACHE_PATH,
         // 缓存前缀
         'prefix' => '',
         // 缓存有效期 0表示永久缓存
         'expire' => 0,
+        'host'=>'127.0.0.1',
+        'port'=>'6379',
+        'password'=>'',
     ],
 
     // +----------------------------------------------------------------------
@@ -238,4 +241,23 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //验证码
+    'captcha'  => [
+        // 验证码字符集合
+        'codeSet'  => '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY', 
+        // 验证码字体大小(px)        
+        'fontSize' => 16, 
+        // 是否画混淆曲线
+        'useCurve' => false, 
+        // 验证码图片高度
+        'imageH'   => 34,
+        // 验证码图片宽度
+        'imageW'   => 160, 
+        // 验证码位数
+        'length'   => 4, 
+        // 验证成功后是否重置        
+        'reset'    => true
+    ],
+    
+    'upload_path'=>ROOT_PATH.'/public/Uploads',
 ];
